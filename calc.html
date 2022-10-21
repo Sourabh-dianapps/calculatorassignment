@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+</head>
+<body>
+    <div>
+        <h1>Calculator</h1>
+        <section>
+            <input class="num1" type="text" >
+            <select name="" id="assign">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option><br />
+            </select>
+            <input class="num2" type="text" >
+        </section>
+        <p>Result = <code id="result"></code></p>
+        <div class="getResult">
+            <button id="submit">Submit</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const n1 = document.querySelector(".num1");
+        const n2 = document.querySelector(".num2");
+
+        const submit = document.querySelector("#submit");
+        const assign = document.querySelector("#assign");
+        const result = document.querySelector("#result");
+
+        submit.addEventListener("click", () => {
+        let finalResult;
+        const firstNumber = n1.value;
+        const secondNumber = n2.value;
+        const operation = assign.value;
+
+        if(operation == "+") {
+            finalResult = parseInt(firstNumber) + parseInt(secondNumber)
+        }
+        else if(operation == "-") {
+            finalResult = firstNumber - secondNumber
+        }
+        else if(operation == "*") {
+            finalResult = firstNumber * secondNumber
+        }
+        else if(operation == "/") {
+            finalResult = firstNumber / secondNumber
+        }
+
+        result.innerHTML = finalResult;
+    })
+    </script>
+</body>
+</html>
